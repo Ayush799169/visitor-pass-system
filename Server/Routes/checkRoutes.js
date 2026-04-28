@@ -1,7 +1,7 @@
 
  const express = require("express");
  const router = express.Router();
- const CheckLog = require("../models/CheckLog");
+ const CheckLog = require("../models/Checklog");
 
  router.post("/checkin", async (req, res) => {
   const log = new CheckLog({

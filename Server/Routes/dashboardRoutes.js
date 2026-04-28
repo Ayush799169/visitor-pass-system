@@ -5,19 +5,19 @@
  const Visitor = require("../models/Visitor");
  const Appointment = require("../models/Appointment");
  const Pass = require("../models/Pass");
- const CheckLog = require("../models/CheckLog");
+ const CheckLog = require("../models/Checklog");
 
   router.get("/", async (req, res) => {
   const totalVisitors = await Visitor.countDocuments();
   const totalAppointments = await Appointment.countDocuments();
   const totalPasses = await Pass.countDocuments();
-  const totalCheckLogs = await CheckLog.countDocuments();
+  const totalChecklogs = await Checklog.countDocuments();
 
   res.json({
     totalVisitors,
     totalAppointments,
     totalPasses,
-    totalCheckLogs
+    totalChecklogs
    });
  });
 
