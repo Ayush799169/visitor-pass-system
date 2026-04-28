@@ -3,13 +3,13 @@
   const cors = require('cors');
  const dotenv = require('dotenv');
  const connectDB = require('./config/db');
-  const authRoutes = require("./routes/authRoutes");
- const visitorRoutes = require("./routes/visitorRoutes");
- const appointmentRoutes = require("./routes/appointmentRoutes");
-  const passRoutes = require("./routes/passRoutes");
+  const authRoutes = require("./Routes/authRoutes");
+ const visitorRoutes = require("./Routes/visitorRoutes");
+ const appointmentRoutes = require("./Routes/appointmentRoutes");
+  const passRoutes = require("./Routes/passRoutes");
  const checkRoutes = require("./Routes/checkRoutes");
  const dashboardRoutes = require("./Routes/dashboardRoutes");
-  const notificationRoutes = require("./routes/notificationRoutes");
+  const notificationRoutes = require("./Routes/notificationRoutes");
   dotenv.config();
 
  const app = express();
