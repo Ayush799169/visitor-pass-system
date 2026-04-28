@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Visitor Pass Management System
 
 A MERN Stack based web application for managing visitors in offices, colleges, apartments, or organizations.
@@ -73,3 +74,6 @@ npm start
    cd server
    npm install
    npm start
+=======
+# visitor-pass-system
+>>>>>>> cdec3d2dda46bcde03db72d090edf4c6a1c45094
