@@ -6,7 +6,7 @@
 
    const getVisitors = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/visitor/all");
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/visitor/all`);
       setVisitors(res.data);
     }  catch (error) {
       alert("Failed to Load Visitors");

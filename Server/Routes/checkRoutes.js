@@ -1,10 +1,10 @@
 
  const express = require("express");
  const router = express.Router();
- const CheckLog = require("../models/Checklog");
+ const Checklog = require("../models/Checklog");
 
  router.post("/checkin", async (req, res) => {
-  const log = new CheckLog({
+  const log = new Checklog({
     visitorName: req.body.visitorName,
     visitorEmail: req.body.visitorEmail,
     visitorPhone: req.body.visitorPhone,
@@ -19,14 +19,14 @@
   });
 
  router.put("/checkout/:id", async (req, res) => {
-  await CheckLog.findByIdAndUpdate(req.params.id, {
+  await Checklog.findByIdAndUpdate(req.params.id, {
     checkOutTime: new Date().toLocaleString()
   });
   res.send("Visitor Checked Out");
  });
 
  router.get("/all", async (req, res) => {
-  const data = await CheckLog.find();
+  const data = await Checklog.find();
   res.json(data);
  });
 

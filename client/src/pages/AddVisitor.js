@@ -26,7 +26,7 @@ function AddVisitor() {
     }
 
     try {
-      await axios.post("http://localhost:5000/api/visitor/add", form);
+      await axios.post(`${process.env.REACT_APP_API_URL}/api/visitor/add`, form);
       alert("Visitor Added Successfully");
       setForm({
         name: "",

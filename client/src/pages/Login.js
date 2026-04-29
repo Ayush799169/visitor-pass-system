@@ -23,7 +23,7 @@ function Login() {
     }
 
     try {
-      await axios.post("http://localhost:5000/api/auth/login", form);
+      await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/login`, form);
       alert("Login Successful");
       navigate("/dashboard");
     } catch (error) {
