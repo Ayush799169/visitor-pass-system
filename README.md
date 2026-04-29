@@ -1,34 +1,58 @@
-
 # Visitor Pass Management System
 
 A MERN Stack based web application for managing visitors in offices, colleges, apartments, or organizations.
 
+## 🔗 Live Demo
+
+- Frontend: https://scintillating-sunflower-3a0df3.netlify.app
+- Backend: https://visitor-pass-system-srj7.onrender.com
+
 ## 🚀 Features
 
-- User Registration
-- User Login
+- User Registration & Login
 - Dashboard Overview
 - Add Visitor Details
 - View Visitor List
 - Book Appointment
-- Generate Visitor Pass
-- QR Code for Pass Verification
+- Generate Visitor Pass with QR Code
 - Check In / Check Out System
-- Responsive Navigation Bar
 
 ## 🛠️ Tech Stack
 
-### Frontend
-- React.js
-- React Router DOM
-- Axios
+- Frontend: React.js, React Router DOM, Axios
+- Backend: Node.js, Express.js
+- Database: MongoDB Atlas
+
+## ⚙️ How to Run Locally
 
 ### Backend
-- Node.js
-- Express.js
+```bash
+cd server
+npm install
+npm start
+```
 
-### Database
-- MongoDB
+### Frontend
+```bash
+cd client
+npm install
+npm start
+```
+
+## 🔑 Environment Variables
+
+### Backend (server/.env)
+MONGO_URI=mongodb://Ayush:<passworld>@ac-du8acn9-shard-00-00.uuoprbe.mongodb.net:27017,ac-du8acn9-shard-00-01.uuoprbe.mongodb.net:27017,ac-du8acn9-shard-00-02.uuoprbe.mongodb.net:27017/?ssl=true&replicaSet=atlas-x6bfl9-shard-0&authSource=admin&appName=Cluster0
+
+PORT=5000
+
+JWT_SECRET=VisitorPassSecret
+
+### Frontend (client/.env)
+REACT_APP_API_URL=http://localhost:5000
+REACT_APP_SOCKET_URL=http://localhost:5000
+
+
 
 ## 📂 Project Structure
     Visitor-Pass-System
@@ -60,19 +84,9 @@ A MERN Stack based web application for managing visitors in offices, colleges, a
 
 ## ⚙️ Installation & Setup
 
-## ⚙️ How to Run Project
-
-### Frontend
-
-  -bash
-cd client
-npm install
-npm start
-
- ### Backend
-   -bash
-   cd server
-   npm install
-   npm start
-   
 # visitor-pass-system
+
+## 👨‍💻 Developer
+
+- Name: Ayush Yadav
+- GitHub: https://github.com/Ayush799169
