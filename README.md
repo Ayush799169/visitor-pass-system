@@ -42,10 +42,8 @@ npm start
 ## 🔑 Environment Variables
 
 ### Backend (server/.env)
-MONGO_URI=mongodb://Ayush:<passworld>@ac-du8acn9-shard-00-00.uuoprbe.mongodb.net:27017,ac-du8acn9-shard-00-01.uuoprbe.mongodb.net:27017,ac-du8acn9-shard-00-02.uuoprbe.mongodb.net:27017/?ssl=true&replicaSet=atlas-x6bfl9-shard-0&authSource=admin&appName=Cluster0
-
+MONGO_URI=your_mongodb_uri
 PORT=5000
-
 JWT_SECRET=VisitorPassSecret
 
 ### Frontend (client/.env)
