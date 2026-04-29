@@ -1,90 +1,108 @@
-# Visitor Pass Management System
+# Visitor Pass Management System (MERN)
 
-A MERN Stack based web application for managing visitors in offices, colleges, apartments, or organizations.
+A full-stack Visitor Pass Management System built using MERN Stack (MongoDB, Express.js, React.js, Node.js).
 
-## 🔗 Live Demo
+This system helps offices and organizations manage visitors digitally with registration, pass generation, appointments, check-in/check-out and dashboard reports.
 
-- Frontend: https://scintillating-sunflower-3a0df3.netlify.app
-- Backend: https://visitor-pass-system-srj7.onrender.com
+---
 
-## 🚀 Features
+## 🚀 Live Demo
+
+Frontend: https://scintillating-sunflower-3a0df3.netlify.app/
+
+Backend API: https://visitor-pass-system-srj7.onrender.com/
+
+---
+
+## 📌 Features
 
 - User Registration & Login
-- Dashboard Overview
-- Add Visitor Details
-- View Visitor List
+- JWT Authentication
+- Dashboard Analytics
+- Add Visitors
+- Visitor List
 - Book Appointment
-- Generate Visitor Pass with QR Code
-- Check In / Check Out System
+- Generate Visitor Pass
+- QR Code Pass
+- Check In / Check Out
+- Responsive UI
+- MERN Full Stack Deployment
 
-## 🛠️ Tech Stack
+---
 
-- Frontend: React.js, React Router DOM, Axios
-- Backend: Node.js, Express.js
-- Database: MongoDB Atlas
-
-## ⚙️ How to Run Locally
-
-### Backend
-```bash
-cd server
-npm install
-npm start
-```
+## 🛠 Tech Stack
 
 ### Frontend
-```bash
-cd client
-npm install
-npm start
-```
+- React.js
+- CSS
+- Axios
+- React Router
 
-## 🔑 Environment Variables
+### Backend
+- Node.js
+- Express.js
+- MongoDB
+- JWT
+- bcryptjs
 
-### Backend (server/.env)
-MONGO_URI=your_mongodb_uri
-PORT=5000
-JWT_SECRET=VisitorPassSecret
+### Database
+ -mongoDB
+  
 
-### Frontend (client/.env)
-REACT_APP_API_URL=http://localhost:5000
-REACT_APP_SOCKET_URL=http://localhost:5000
+## 📷 Screenshots
 
+### Login
+![Login](Screenshot/login.png)
 
+### Register
+![Register](Screenshot/Register.png)
 
-## 📂 Project Structure
-    Visitor-Pass-System
-    \-Client
-    \-Server
-    \-README.md
+### Dashboard
+![Dashboard](Screenshot/Dashboard.png)
 
+### Add Visitor
+![Visitor](Screenshot/Visitor.png)
 
-## 📂 Project Modules
+### Pass
+![Pass](Screenshot/Pass.png)
 
-1. Authentication Module  
-   - Register
-   - Login
+### Appointment
+![Appointment](Screenshot/Appointment.png)
 
-2. Visitor Module  
-   - Add Visitor
-   - View Visitor List
+### Check In
+![CheckIn](Screenshot/chackin.png)
 
-3. Appointment Module  
-   - Book Appointment
+### Check Out
+![CheckOut](Screenshot/checkout.png)
 
-4. Pass Module  
-   - Generate Visitor Pass
-   - QR Code
+### Visitor
+![Visitor](Screenshot/Visitor.png)
 
-5. Tracking Module  
-   - Check In
-   - Check Out
+---
 
-## ⚙️ Installation & Setup
+## 🎥 Demo Video
 
-# visitor-pass-system
+Video available inside project folder:
 
-## 👨‍💻 Developer
+video demo/Screen Recording.mp4
 
-- Name: Ayush Yadav
-- GitHub: https://github.com/Ayush799169
+---
+
+## 📂 Folder Structure
+
+client/ → Frontend  
+Server/ → Backend  
+Screenshot/ → Images  
+video demo/ → Demo Video
+
+---
+
+## 👨‍💻 Author
+
+Ayush Yadav
+
+---
+
+## ⭐ Project Status
+
+Completed Successfully
