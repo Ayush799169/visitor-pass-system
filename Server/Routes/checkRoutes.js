@@ -3,31 +3,40 @@
  const router = express.Router();
  const Checklog = require("../models/Checklog");
 
- router.post("/checkin", async (req, res) => {
-  const log = new Checklog({
-    visitorName: req.body.visitorName,
-    visitorEmail: req.body.visitorEmail,
-    visitorPhone: req.body.visitorPhone,
-    purpose: req.body.purpose,
-    host: req.body.host,
-    checkInTime: new Date().toLocaleString(),
-    checkOutTime: ""
+  router.post("/checkin", async (req, res) => {
+     try {
+    const log = new Checklog({
+      visitorName: req.body.visitorName,
+      checkInTime: new Date().toLocaleString(),
+      checkOutTime: ""
+     });
+   await log.save();
+    res.json({ message: "Visitor Checked In" });
+   } catch (err) {
+    res.status(500).json({ message: "Error" });
+    }
   });
 
-  await log.save();
-  res.send("Visitor Checked In");
-  });
-
- router.put("/checkout/:id", async (req, res) => {
-  await Checklog.findByIdAndUpdate(req.params.id, {
-    checkOutTime: new Date().toLocaleString()
-  });
-  res.send("Visitor Checked Out");
+ router.post("/checkout", async (req, res) => {
+  try {
+    const log = new Checklog({
+      visitorName: req.body.visitorName,
+      checkOutTime: new Date().toLocaleString(),
+    });
+    await log.save();
+    res.json({ message: "Visitor Checked Out" });
+  } catch (err) {
+    res.status(500).json({ message: "Error" });
+  }
  });
 
  router.get("/all", async (req, res) => {
-  const data = await Checklog.find();
-  res.json(data);
+  try {
+    const data = await Checklog.find();
+    res.json(data);
+  } catch (err) {
+    res.status(500).json({ message: "Error" });
+  }
  });
 
-  module.exports = router;
+    module.exports = router;

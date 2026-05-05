@@ -1,24 +1,43 @@
-import React, { useState } from "react";
+ import React, { useState } from "react";
+ import axios from "axios";
 
-function CheckPage() {
+ function CheckPage() {
   const [name, setName] = useState("");
+  const token = localStorage.getItem("token");
 
-  const handleCheckIn = () => {
-    if (!name.trim()) {
-      alert("Enter Visitor Name");
+  const handleCheckIn = async () => {
+    if (!name) {
+      alert("Enter visitor name");
       return;
     }
-
-    alert(name + " Checked In Successfully");
+    try {
+      await axios.post(
+        `${process.env.REACT_APP_API_URL}/api/check/checkin`,
+        { visitorName: name },
+        { headers: { Authorization: token } },
+      );
+      alert(name + " Checked In Successfully");
+      setName("");
+    } catch (err) {
+      alert("Error");
+    }
   };
-
-  const handleCheckOut = () => {
-    if (!name.trim()) {
-      alert("Enter Visitor Name");
+  const handleCheckOut = async () => {
+    if (!name) {
+      alert("Enter visitor name");
       return;
     }
-
-    alert(name + " Checked Out Successfully");
+    try {
+      await axios.post(
+        `${process.env.REACT_APP_API_URL}/api/check/checkout`,
+        { visitorName: name },
+        { headers: { Authorization: token } },
+      );
+      alert(name + " Checked Out Successfully");
+      setName("");
+    } catch (err) {
+      alert("Error");
+    }
   };
 
   return (
@@ -32,60 +51,48 @@ function CheckPage() {
           padding: "30px",
           borderRadius: "10px",
           boxShadow: "0 0 10px lightgray",
+          textAlign: "center",
         }}
       >
-        <h1 style={{ marginBottom: "20px", textAlign: "center" }}>
-          Check In / Out
-        </h1>
-
+        <h1 style={{ marginBottom: "20px" }}>Check In / Out</h1>
         <input
           type="text"
           placeholder="Enter Visitor Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          style={inputStyle}
+          style={{ width: "100%", padding: "10px", marginBottom: "15px" }}
         />
-
         <button
-          type="button"
           onClick={handleCheckIn}
           style={{
-            ...buttonStyle,
+            width: "100%",
+            padding: "12px",
             background: "#28a745",
-            marginBottom: "12px",
+            color: "white",
+            border: "none",
+            borderRadius: "5px",
+            marginBottom: "10px",
           }}
         >
-          Check In
+          ✅ Check In
         </button>
 
         <button
-          type="button"
           onClick={handleCheckOut}
           style={{
-            ...buttonStyle,
+            width: "100%",
+            padding: "12px",
             background: "#dc3545",
+            color: "white",
+            border: "none",
+            borderRadius: "5px",
           }}
         >
-          Check Out
+          ❌ Check Out
         </button>
       </div>
     </div>
   );
-}
+ }
 
-const inputStyle = {
-  width: "100%",
-  padding: "10px",
-  marginBottom: "15px",
-};
-
-const buttonStyle = {
-  width: "100%",
-  padding: "12px",
-  color: "white",
-  border: "none",
-  borderRadius: "5px",
-  cursor: "pointer",
-};
-
- export default CheckPage;
+    export default CheckPage;

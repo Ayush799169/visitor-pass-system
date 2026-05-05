@@ -5,7 +5,7 @@
  const PDFDocument = require("pdfkit");
  const Pass = require("../models/Pass");
 
- router.post("/generate", async (req, res) => {
+  router.post("/generate", async (req, res) => {
   const qrData = `${req.body.visitorName}-${req.body.visitorEmail}-${Date.now()}`;
   const qrCode = await QRCode.toDataURL(qrData);
 
@@ -21,16 +21,16 @@
 
   await pass.save();
     res.json(pass);
-  });
+   });
 
   router.get("/all", async (req, res) => {
    const data = await Pass.find();
     res.json(data);
-  });
+   });
 
- router.get("/pdf/:id", async (req, res) => {
-  const pass = await Pass.findById(req.params.id);
-  const doc = new PDFDocument();
+  router.get("/pdf/:id", async (req, res) => {
+   const pass = await Pass.findById(req.params.id);
+   const doc = new PDFDocument();
 
   res.setHeader("Content-Type", "application/pdf");
   res.setHeader("Content-Disposition", "attachment; filename=visitor-pass.pdf");
@@ -44,6 +44,6 @@
   doc.text(`Host: ${pass.host}`);
   doc.text(`Status: ${pass.status}`);
   doc.end();
- });
+  });
 
-  module.exports = router;
+    module.exports = router;

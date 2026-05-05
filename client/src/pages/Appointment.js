@@ -1,36 +1,34 @@
-import React, { useState } from "react";
+ import React, { useState } from "react";
+ import axios from "axios";
 
  function Appointment() {
   const [form, setForm] = useState({
-    visitor: "",
-    host: "",
+    visitorName: "",
+    hostEmail: "",
     date: "",
     time: "",
   });
 
   const handleChange = (e) => {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value,
-    });
+    setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const bookAppointment = (e) => {
+  const bookAppointment = async (e) => {
     e.preventDefault();
-
-    if (!form.visitor || !form.host || !form.date || !form.time) {
+    if (!form.visitorName || !form.hostEmail || !form.date) {
       alert("Please fill all fields");
       return;
     }
-
-    alert("Appointment Booked Successfully");
-
-    setForm({
-      visitor: "",
-      host: "",
-      date: "",
-      time: "",
-    });
+    try {
+      await axios.post(
+        `${process.env.REACT_APP_API_URL}/api/appointment/add`,
+        form,
+      );
+      alert("Appointment Booked Successfully");
+      setForm({ visitorName: "", hostEmail: "", date: "", time: "" });
+    } catch (err) {
+      alert("Error booking appointment");
+    }
   };
 
   return (
@@ -47,26 +45,23 @@ import React, { useState } from "react";
         }}
       >
         <h1 style={{ marginBottom: "20px" }}>Book Appointment</h1>
-
         <form onSubmit={bookAppointment}>
           <input
             type="text"
-            name="visitor"
+            name="visitorName"
             placeholder="Visitor Name"
-            value={form.visitor}
+            value={form.visitorName}
             onChange={handleChange}
             style={inputStyle}
           />
-
           <input
-            type="text"
-            name="host"
-            placeholder="Host Name"
-            value={form.host}
+            type="email"
+            name="hostEmail"
+            placeholder="Host Email"
+            value={form.hostEmail}
             onChange={handleChange}
             style={inputStyle}
           />
-
           <input
             type="date"
             name="date"
@@ -74,7 +69,6 @@ import React, { useState } from "react";
             onChange={handleChange}
             style={inputStyle}
           />
-
           <input
             type="time"
             name="time"
@@ -82,7 +76,6 @@ import React, { useState } from "react";
             onChange={handleChange}
             style={inputStyle}
           />
-
           <button type="submit" style={buttonStyle}>
             Book Appointment
           </button>
@@ -96,8 +89,9 @@ import React, { useState } from "react";
   width: "100%",
   padding: "10px",
   marginBottom: "15px",
+  borderRadius: "5px",
+  border: "1px solid #ddd",
  };
-
  const buttonStyle = {
   width: "100%",
   padding: "12px",
@@ -107,4 +101,4 @@ import React, { useState } from "react";
   borderRadius: "5px",
  };
 
-    export default Appointment;
+   export default Appointment;

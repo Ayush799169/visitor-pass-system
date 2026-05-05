@@ -1,34 +1,49 @@
- 
- const express = require('express');
-  const cors = require('cors');
- const dotenv = require('dotenv');
- const connectDB = require('./config/db');
-  const authRoutes = require("./Routes/AuthRoutes");
- const visitorRoutes = require("./Routes/VisitorRoutes");
- const appointmentRoutes = require("./Routes/AppointmentRoutes");
-  const passRoutes = require("./Routes/PassRoutes");
- const checkRoutes = require("./Routes/checkRoutes");
- const dashboardRoutes = require("./Routes/dashboardRoutes");
-  const notificationRoutes = require("./Routes/notificationRoutes");
-  dotenv.config();
+ const express = require("express");
+ const cors = require("cors");
+ const dotenv = require("dotenv");
 
- const app = express();
-  app.use(cors());
-  app.use(express.json());
-  app.get ('/', (req, res) => {
-    res.send('Visitor Pass system server is running');
-  });
+   dotenv.config();
 
-  app.use("/api/auth", authRoutes);
-  app.use("/api/visitor", visitorRoutes);
-  app.use("/api/appointment", appointmentRoutes);
-  app.use("/api/pass", passRoutes);
- app.use("/api/check", checkRoutes);
- app.use("/api/dashboard", dashboardRoutes);
- app.use("/api/notification", notificationRoutes);
+ const connectDB = require("./config/db");
 
- connectDB();
- const PORT = 5000;
-  app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-  });
+const authRoutes = require("./Routes/AuthRoutes");
+const visitorRoutes = require("./Routes/VisitorRoutes");
+const appointmentRoutes = require("./Routes/AppointmentRoutes");
+const passRoutes = require("./Routes/PassRoutes");
+const checkRoutes = require("./Routes/checkRoutes");
+const dashboardRoutes = require("./Routes/dashboardRoutes");
+const notificationRoutes = require("./Routes/notificationRoutes");
+
+const app = express();
+
+// middleware
+
+app.use(cors());
+app.use(express.json());
+
+app.get("/", (req, res) => {
+  res.send("Visitor Pass system server is running");
+});
+
+if (!process.env.MONGO_URI || !process.env.JWT_SECRET) {
+  console.log("Missing environment variables");
+  process.exit(1);
+}
+
+// routes
+
+app.use("/api/auth", authRoutes);
+app.use("/api/visitor", visitorRoutes);
+app.use("/api/appointment", appointmentRoutes);
+app.use("/api/pass", passRoutes);
+app.use("/api/check", checkRoutes);
+app.use("/api/dashboard", dashboardRoutes);
+app.use("/api/notification", notificationRoutes);
+
+  connectDB();
+
+  const PORT = process.env.PORT || 5000;
+
+ app.listen(PORT, () => {
+     console.log(`Server is running on port ${PORT}`);
+     });

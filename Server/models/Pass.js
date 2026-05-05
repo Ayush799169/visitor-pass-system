@@ -11,4 +11,4 @@
   status: String
   });
 
-  module.exports = mongoose.model("Pass", passSchema);
+   module.exports = mongoose.model("Pass", passSchema);

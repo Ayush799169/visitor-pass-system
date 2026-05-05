@@ -11,7 +11,7 @@
   const totalVisitors = await Visitor.countDocuments();
   const totalAppointments = await Appointment.countDocuments();
   const totalPasses = await Pass.countDocuments();
-  const totalChecklogs = await Checklog.countDocuments();
+  const totalChecklogs = await CheckLog.countDocuments();
 
   res.json({
     totalVisitors,
@@ -19,6 +19,6 @@
     totalPasses,
     totalChecklogs
    });
- });
+  });
 
   module.exports = router;

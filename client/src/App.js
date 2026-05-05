@@ -1,18 +1,17 @@
+ 
  import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
-
+ import Navbar from "./components/Navbar";
  import Login from "./pages/Login";
  import Register from "./pages/Register";
-import Dashboard from "./pages/Dashboard";
+ import Dashboard from "./pages/Dashboard";
  import AddVisitor from "./pages/AddVisitor";
  import VisitorList from "./pages/VisitorList";
-import Appointment from "./pages/Appointment";
+ import Appointment from "./pages/Appointment";
  import PassPage from "./pages/PassPage";
-import CheckPage from "./pages/CheckPage";
-
+ import CheckPage from "./pages/CheckPage";
 
  function App() {
-  return (
+   return (
     <BrowserRouter>
       <Navbar />
 
@@ -28,6 +27,6 @@ import CheckPage from "./pages/CheckPage";
       </Routes>
     </BrowserRouter>
   );
-}
+ }
 
-export default App;
+  export default App;

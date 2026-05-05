@@ -1,55 +1,90 @@
-# Visitor Pass Management System (MERN)
+  # Visitor Pass Management System (MERN)
 
-A full-stack Visitor Pass Management System built using MERN Stack (MongoDB, Express.js, React.js, Node.js).
+ A full-stack Visitor Pass Management System built using MERN Stack (MongoDB, Express.js, React.js, Node.js).
+ This system helps offices and organizations manage visitors digitally with registration, pass generation, appointments, check-in/check-out and dashboard reports.
 
-This system helps offices and organizations manage visitors digitally with registration, pass generation, appointments, check-in/check-out and dashboard reports.
+ ---
 
----
+ ## 🚀 Live Demo
 
-## 🚀 Live Demo
+ Frontend: https://scintillating-sunflower-3a0df3.netlify.app/ 
+ Backend API: https://visitor-pass-system-srj7.onrender.com/
 
-Frontend: https://scintillating-sunflower-3a0df3.netlify.app/
+ ---
 
-Backend API: https://visitor-pass-system-srj7.onrender.com/
+ ## 📌 Features
 
----
-
-## 📌 Features
-
-- User Registration & Login
-- JWT Authentication
-- Dashboard Analytics
-- Add Visitors
+- User Registration & Login (JWT Authentication)
+- bcrypt Password Hashing
+- Role-based Users (Admin, Security, Employee, Visitor)
+- Dashboard Analytics with Search & Filter
+- Export Visitors to CSV
+- Add Visitors with Photo Upload
 - Visitor List
 - Book Appointment
-- Generate Visitor Pass
-- QR Code Pass
+- Generate Visitor Pass with QR Code
 - Check In / Check Out
+- Email Notifications (Nodemailer)
+- Input Validation (express-validator)
+- Protected Routes (JWT Middleware)
 - Responsive UI
 - MERN Full Stack Deployment
 
----
+ ---
 
-## 🛠 Tech Stack
+ ## 🛠 Tech Stack
 
-### Frontend
-- React.js
-- CSS
-- Axios
-- React Router
+ ### Frontend
+ - React.js
+ - Axios
+ - React Router DOM
+ - react-qr-code
 
-### Backend
-- Node.js
-- Express.js
-- MongoDB
-- JWT
-- bcryptjs
+ ### Backend
+ - Node.js
+ - Express.js
+ - MongoDB Atlas
+ - JWT (jsonwebtoken)
+ - bcryptjs
+ - Multer (photo upload)
+ - Nodemailer (email notifications)
+ - express-validator
+ - QRCode
+ - PDFKit
 
-### Database
- -mongoDB
-  
+ ---
 
-## 📷 Screenshots
+ ## 🔑 Environment Variables
+
+ ### Backend (server/.env)
+ MONGO_URI=your_mongodb_uri
+ JWT_SECRET=your_jwt_secret
+ PORT=5000
+
+ ### Frontend (client/.env)
+ REACT_APP_API_URL=http://localhost:5000
+
+ ---
+
+ ## ⚙️ How to Run Locally
+
+ ### Backend
+ cd server
+ npm install
+ npm start
+
+ ### Frontend
+ cd client
+ npm install
+ npm start
+
+ ### Seed Demo Data
+ cd server
+ node seed.js
+
+ ---
+
+ ## 📷 Screenshots
 
 ### Login
 ![Login](Screenshot/login.png)
@@ -75,34 +110,28 @@ Backend API: https://visitor-pass-system-srj7.onrender.com/
 ### Check Out
 ![CheckOut](Screenshot/checkout.png)
 
-### Visitor
-![Visitor](Screenshot/Visitor.png)
-
 ---
 
 ## 🎥 Demo Video
-
-Video available inside project folder:
-
 video demo/Screen Recording.mp4
-
----
 
 ## 📂 Folder Structure
 
-client/ → Frontend  
-Server/ → Backend  
-Screenshot/ → Images  
-video demo/ → Demo Video
+Visitor-Pass-System/
+├── client/  Frontend 
+├── Server/  Backend 
+├── Screenshot/  Screenshots
+└── video demo/  Demo Video
 
 ---
 
 ## 👨‍💻 Author
 
 Ayush Yadav
+GitHub: https://github.com/Ayush799169
 
 ---
 
 ## ⭐ Project Status
 
-Completed Successfully
+Completed Successfully ✅

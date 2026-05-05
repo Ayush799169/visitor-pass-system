@@ -1,41 +1,47 @@
+
  import React, { useState } from "react";
  import axios from "axios";
  import { Link, useNavigate } from "react-router-dom";
 
  function Register() {
-  const navigate = useNavigate();
+   const navigate = useNavigate();
 
   const [form, setForm] = useState({
     name: "",
     email: "",
     password: "",
-  });
+    role: "",
+   });
 
-  const handleChange = (e) => {
+   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
-  };
+   };
 
   const handleRegister = async (e) => {
     e.preventDefault();
+    console.log("clicked");
 
-    if (!form.name || !form.email || !form.password) {
+    if (!form.name || !form.email || !form.password || !form.role) {
       alert("Please fill all fields");
       return;
     }
 
     try {
-      await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/register`, form);
+      await axios.post(
+        `${process.env.REACT_APP_API_URL}/api/auth/register`,
+        form,
+      );
       alert("Registration Successful");
       navigate("/");
     } catch (error) {
       alert("Registration Failed");
     }
-   };
+  };
 
-  return (
-    <div
-      style={{ display: "flex", justifyContent: "center", marginTop: "60px" }}
-      >
+   return (
+     <div
+       style={{ display: "flex", justifyContent: "center", marginTop: "60px" }}
+     >
       <div
         style={{
           width: "420px",
@@ -53,11 +59,7 @@
           placeholder="Enter Name"
           value={form.name}
           onChange={handleChange}
-          style={{
-            width: "100%",
-            padding: "10px",
-            marginBottom: "15px",
-          }}
+          style={{ width: "100%", padding: "10px", marginBottom: "15px" }}
         />
 
         <input
@@ -66,11 +68,7 @@
           placeholder="Enter Email"
           value={form.email}
           onChange={handleChange}
-          style={{
-            width: "100%",
-            padding: "10px",
-            marginBottom: "15px",
-          }}
+          style={{ width: "100%", padding: "10px", marginBottom: "15px" }}
         />
 
         <input
@@ -79,12 +77,21 @@
           placeholder="Enter Password"
           value={form.password}
           onChange={handleChange}
-          style={{
-            width: "100%",
-            padding: "10px",
-            marginBottom: "15px",
-          }}
+          style={{ width: "100%", padding: "10px", marginBottom: "15px" }}
         />
+
+        <select
+          name="role"
+          value={form.role}
+          onChange={handleChange}
+          style={{ width: "100%", padding: "10px", marginBottom: "15px" }}
+        >
+          <option value="">Select Role</option>
+          <option value="Admin">Admin</option>
+          <option value="Security">Security</option>
+          <option value="Employee">Employee</option>
+          <option value="Visitor">Visitor</option>
+        </select>
 
         <button
           onClick={handleRegister}
@@ -106,6 +113,6 @@
       </div>
     </div>
   );
- } 
+ }
 
-   export default Register;
+     export default Register;

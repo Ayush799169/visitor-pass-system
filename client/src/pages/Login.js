@@ -1,14 +1,10 @@
- import React, { useState } from "react"; 
+ import React, { useState } from "react";
  import axios from "axios";
  import { Link, useNavigate } from "react-router-dom";
 
-function Login() {
+ function Login() {
   const navigate = useNavigate();
-
-  const [form, setForm] = useState({
-    email: "",
-    password: "",
-  });
+  const [form, setForm] = useState({ email: "", password: "" });
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -16,14 +12,16 @@ function Login() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-
     if (!form.email || !form.password) {
       alert("Please fill all fields");
       return;
     }
-
     try {
-      await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/login`, form);
+      const res = await axios.post(
+        `${process.env.REACT_APP_API_URL}/api/auth/login`,
+        form,
+      );
+      localStorage.setItem("token", res.data.token);
       alert("Login Successful");
       navigate("/dashboard");
     } catch (error) {
@@ -31,10 +29,10 @@ function Login() {
     }
   };
 
-   return (
+  return (
     <div
       style={{ display: "flex", justifyContent: "center", marginTop: "60px" }}
-       >
+    >
       <div
         style={{
           width: "420px",
@@ -43,35 +41,24 @@ function Login() {
           borderRadius: "10px",
           boxShadow: "0 0 10px lightgray",
         }}
-        >
+      >
         <h1 style={{ marginBottom: "20px" }}>Login</h1>
-
         <input
           type="email"
           name="email"
           placeholder="Enter Email"
           value={form.email}
           onChange={handleChange}
-          style={{
-            width: "100%",
-            padding: "10px",
-            marginBottom: "15px",
-          }}
+          style={{ width: "100%", padding: "10px", marginBottom: "15px" }}
         />
-
         <input
           type="password"
           name="password"
           placeholder="Enter Password"
           value={form.password}
           onChange={handleChange}
-          style={{
-            width: "100%",
-            padding: "10px",
-            marginBottom: "15px",
-          }}
+          style={{ width: "100%", padding: "10px", marginBottom: "15px" }}
         />
-
         <button
           onClick={handleLogin}
           style={{
@@ -85,13 +72,12 @@ function Login() {
         >
           Login
         </button>
-
         <p style={{ marginTop: "15px" }}>
           New User? <Link to="/register">Register Here</Link>
         </p>
       </div>
     </div>
   );
- } 
+ }
 
-   export default Login;
+    export default Login;

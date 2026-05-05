@@ -11,4 +11,4 @@
   checkOutTime: String
   });
 
-  module.exports = mongoose.model("CheckLog", checkLogSchema);
+   module.exports = mongoose.model("CheckLog", checkLogSchema);
