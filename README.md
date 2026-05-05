@@ -99,13 +99,13 @@
 ![AddVisitor](Screenshots/Addvisitor.png)
 
 ### Pass
-![Pass](Screenshots/Pass.png)
+![pass](Screenshots/pass.png)
 
 ### Appointment
 ![Appointment](Screenshots/Appointment.png)
 
 ### Check In
-![CheckIn](Screenshots/chackin.png)
+![CheckIn](Screenshots/checkin.png)
 
 ### Check Out
 ![CheckOut](Screenshots/checkout.png)
