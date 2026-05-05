@@ -87,33 +87,36 @@
  ## 📷 Screenshots
 
 ### Login
-![Login](Screenshot/login.png)
+![Login](Screenshots/Login.png)
 
 ### Register
-![Register](Screenshot/Register.png)
+![Register](Screenshots/Register.png)
 
 ### Dashboard
-![Dashboard](Screenshot/Dashboard.png)
+![Dashboard](Screenshots/Dashboard.png)
 
 ### Add Visitor
-![Visitor](Screenshot/Visitor.png)
+![AddVisitor](Screenshots/Addvisitor.png)
 
 ### Pass
-![Pass](Screenshot/Pass.png)
+![Pass](Screenshots/Pass.png)
 
 ### Appointment
-![Appointment](Screenshot/Appointment.png)
+![Appointment](Screenshots/Appointment.png)
 
 ### Check In
-![CheckIn](Screenshot/chackin.png)
+![CheckIn](Screenshots/chackin.png)
 
 ### Check Out
-![CheckOut](Screenshot/checkout.png)
+![CheckOut](Screenshots/checkout.png)
+
+### Visitor
+![Visitor](Screenshots/Visitor.png)
 
 ---
 
 ## 🎥 Demo Video
-video demo/Screen Recording.mp4
+![Video](Video/Screen01.mp4)
 
 ## 📂 Folder Structure
 
