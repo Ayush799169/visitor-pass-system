@@ -14,8 +14,6 @@
     host: "",
    });
 
-  const token = localStorage.getItem("token");
-
   useEffect(() => {
     fetchPasses();
   }, []);
